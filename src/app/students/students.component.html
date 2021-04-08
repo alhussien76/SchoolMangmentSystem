@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="col">
+                    <accordion 
+                    [closeOthers]="true"
+                    [isAnimated]="true">
+                        <accordion-group 
+                        *ngFor = "let student of ListOfStudents let i = index"
+                        [heading]="student.first_name + ' ' + student.last_name">
+                        <div 
+                        class="row align-items-center">
+                            <div class="col">
+                                <img
+                                class="img-fluid rounded-circle "
+                                [src]="student.avatar"
+                                [alt]=" student.first_name + ' '+ student.last_name "
+                                [ngStyle]="{'max-width':'100%','max-height':'100%' }"
+                                >
+                            </div>
+                            <div class="col">
+                                <button 
+                                class="btn btn-primary"
+                                (click)="onViewMore(i)"                         
+                                > 
+                                View More!
+                                </button>
+                            </div>
+                        </div>
+                        </accordion-group>
+                    </accordion>
+                </div>
+            </div>
+            <hr>  
+            <div class="row"> 
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="page_number">Page Number :</label>
+                                <input 
+                                type="number"
+                                min="1"
+                                class="form-control"
+                                id="page_number" 
+                                placeholder="default is 1"
+                                [(ngModel)]="pageNumber">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                            <label for="studentPerPage">Students/Page :</label>
+                            <input 
+                            type="number"
+                            min="1"
+                            class="form-control"
+                            id="studentPerPage"
+                            placeholder="default is 6"
+                            [(ngModel)]="studentPerPage">
+                            </div>
+                        </div>
+                    </div>        
+                    <button type="button" 
+                    class="btn btn-primary form-group"
+                    (click)="onShow()"
+                    >Show </button>          
+                </div>    
+            </div>
+        </div>
+        <div class="col-6 ">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+    
+</div>
+

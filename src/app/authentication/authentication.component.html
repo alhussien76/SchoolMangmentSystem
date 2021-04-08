@@ -1,0 +1,43 @@
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Login Form -->
+      <form #myform="ngForm" (ngSubmit)="onSubmit()">
+        <input
+         type="text" id="login" class="fadeIn second" name="Email" placeholder="Email"
+         #email="ngModel"
+         ngModel
+         email 
+         required
+         >
+         <small
+         *ngIf="email.invalid && email.touched"
+         id="passwordHelpBlock" class="form-text text-muted">
+            Please Entre A Valid Email 
+          </small>
+        <input 
+        type="text" id="password" class="fadeIn third" name="Password" placeholder="password"
+        ngModel
+        #password="ngModel"
+         required  password minlength="6"
+        >
+        <small
+        *ngIf="password.invalid && password.touched"
+        id="passwordHelpBlock" class="form-text text-muted">
+           Password >= 6 character
+         </small>
+        <input 
+        [disabled]="!myform.valid"       
+        type="submit" class="fadeIn fourth" [value]="signUp ? 'Sign Up' : 'Log in'">
+       
+      </form>
+  
+      <!-- switching state -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#" (click)="onSignUp()">
+          {{signUp ?'Log in' : 'Not A User? Sign Up'}}
+        </a>
+      </div>
+  
+    </div>
+  </div>

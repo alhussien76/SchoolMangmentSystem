@@ -1,0 +1,81 @@
+<div 
+[style.display]="paramsFound === true ? 'flex' : 'block'"
+class="row ">
+    <div class="col" *ngIf="!paramsFound">
+        <div 
+        class="row justify-content-center"  >
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="id"> Please Enter Student ID :</label>
+                            <input 
+                            id="id"
+                            class="form-control"
+                            type="number"
+                            min="1"
+                            [(ngModel)]="studID"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <button
+                class="btn btn-primary form-control" 
+                (click)="onShowDetail()">Show Student Details!</button>
+            </div>
+        </div>
+    </div>
+    <div class="col ">
+        <div class="row" *ngIf="studentInfo">
+            <div class="col">
+                <div 
+                [style.margin-top]="paramsFound === false ? '15px' : 'auto'"
+                class="row justify-content-center">
+                    <div 
+                    class="card" 
+                    style="width: auto; font-style: italic"
+                    >   
+                    <img 
+                    class=" rounded mx-auto d-block" 
+                    [src]="studentInfo.avatar" 
+                    [ngStyle]="{'max-width':'100%','max-height':'auto'}"
+                    [alt]="studentInfo.first_name + ' ' + studentInfo.last_name"
+                    >
+                    <div class="card-body">
+                        <h5 class="card-title">{{studentInfo.first_name}} {{studentInfo.last_name}} </h5>
+                        <p class="card-text" >Here You Can Find More Information About 
+                        {{studentInfo.first_name}} {{studentInfo.last_name}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item "><b>Id:</b> {{studentInfo.id}}</li>
+                        <li class="list-group-item"><b>First Name:</b> {{studentInfo.first_name}}</li>
+                        <li class="list-group-item"><b>Last Name:</b> {{studentInfo.last_name}}</li>
+                        <li class="list-group-item"><b>Email:</b> {{studentInfo.email}}</li>
+                    </ul>
+                     
+                    </div>
+                    <button
+                    class="btn btn-danger"
+                    (click)="onClose()"
+                    >X</button>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div 
+            [ngStyle]="{'margin-top':'15px'}"
+            *ngIf="error"
+            class="alert alert-danger " role="alert">
+                Oops There Is No Student With This Id !
+            </div>
+        </div>
+      
+    </div>
+</div>
+
+       
+    
+
+
+
+

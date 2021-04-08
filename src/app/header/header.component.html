@@ -1,0 +1,24 @@
+<div class="container_fluid">
+  <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <a class="navbar-brand" href="#">School Management System</a>
+    <ul class="navbar-nav">
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" routerLinkActive="active" routerLink="students">Students</a>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" routerLinkActive="active" routerLink="student-detail">Student Detail</a>
+      </li>
+      <li class="nav-item" *ngIf="!isAuthenticated">
+        <a class="nav-link" routerLinkActive="active" routerLink="authentication">Authentication</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" routerLinkActive="active" routerLink="authentication" 
+        (click)="onLogut()">Logut</a>
+      </li>
+    </ul>   
+  
+    
+  </nav>
+</div>
