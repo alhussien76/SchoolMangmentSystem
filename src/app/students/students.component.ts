@@ -7,9 +7,6 @@ import { Student } from './student.model';
 import * as AppState from '../store/app.reducer'
 import * as fromStudents from './store/students.actions'
 
-interface  Response{
-  data:Student[]|null;
-}
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',

@@ -2,12 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
+## Features
+Responsive Design For All Devices  
+Application State (ngrx)  
+Unit Test 
+
 ## Development server
 To login or signup  
 Email: huss@gmail.com  
 Password: 123456  
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Deployment
+This app is deployed via firebase [Go to app](https://schoolmangmentsys.web.app/)
 
 ## Code scaffolding
 
@@ -25,8 +33,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Deployment
-This app is deployed via firebase [Go to app](https://schoolmangmentsys.web.app/)
 
 ## Further help
 

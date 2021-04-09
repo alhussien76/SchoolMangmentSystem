@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -27,9 +27,7 @@ export class StudentInfoComponent implements OnInit , OnDestroy {
    ) { }
 
   ngOnInit(): void {
-    
     this.stateSubscription = this.store.select('students').subscribe(studentState=>{
-
       if(studentState.student){
         this.error=null
         this.studentInfo = studentState.student
