@@ -26,7 +26,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Deployment
-This app is deployed via [firebase](https://schoolmangmentsys.web.app/)
+This app is deployed via firebase [Go to app](https://schoolmangmentsys.web.app/)
 
 ## Further help
 
