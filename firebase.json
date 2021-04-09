@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "schoolmangmentsys",
     "public": "dist/Task1",
     "ignore": [
       "firebase.json",

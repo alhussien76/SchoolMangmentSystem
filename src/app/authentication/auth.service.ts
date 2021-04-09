@@ -17,8 +17,8 @@ autoLogin(){
     }
     if(this.expirationTime){
         const  expirein = new Date(this.expirationTime).getTime() - new Date().getTime()
-        this.autoLogout(expirein);
         this.isAuthenticated.next(true);
+        this.autoLogout(expirein);
         return true
     }
     return false
@@ -27,13 +27,12 @@ autoLogout(expiresin:number){
    this.clearTimeout= setTimeout(() =>{
         this.logout()
     },expiresin)
-
 }
 logout(){
-   
     this.isAuthenticated.next(false)
     clearTimeout(this.clearTimeout)
     localStorage.clear()
+    if(this.router)
     this.router.navigate(['authentication'])
 }
 login(){
@@ -41,6 +40,7 @@ login(){
     const expirationTime =  new Date(new Date().getTime() + 3600 * 1000)
     this.autoLogout(3600 * 1000)
     localStorage.setItem('this.expirationTime',JSON.stringify(expirationTime) )
+    if(this.router)
     this.router.navigate(['students']);
 }
 

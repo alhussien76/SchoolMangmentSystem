@@ -12,7 +12,6 @@ export class AuthenticationComponent implements OnInit {
  @ViewChild('myform')myform!:NgForm
  signUp!:boolean;
   constructor(
-    private router:Router,
     private authservice:authService
     ) { }
 

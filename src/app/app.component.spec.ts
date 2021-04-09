@@ -1,13 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HeaderComponent } from './header/header.component';
+import { authService } from './authentication/auth.service';
 
 describe('AppComponent', () => {
+  let service: authService
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({ 
+      imports: [ RouterTestingModule  ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent
       ],
+      providers: [authService]
     }).compileComponents();
+    service = TestBed.inject(authService)
   });
 
   it('should create the app', () => {
@@ -16,16 +24,12 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Task1'`, () => {
+  it('should contain div with class name container_fluied', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('Task1');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    service.autoLogin()
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Task1 app is running!');
+    expect(compiled.querySelector('.container_fluied'))
+    .toBeTruthy();
   });
 });

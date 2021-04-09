@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { Student } from './student.model';
 
 interface  Response{
-  data:Student[]
+  data:Student[]|null;
 }
 @Component({
   selector: 'app-students',
@@ -13,7 +13,7 @@ interface  Response{
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit  , OnDestroy{
-  ListOfStudents!:Student[]
+  ListOfStudents!:Student[]|null
   pageNumber:number=1
   studentPerPage:number=6
   subscription!:Subscription
@@ -32,7 +32,7 @@ export class StudentsComponent implements OnInit  , OnDestroy{
     let params = new HttpParams();
     params=params.set('page',this.pageNumber.toString()),
     params=params.set('per_page',this.studentPerPage.toString())
-    this.subscription=this.http.get<Response>('https://reqres.in/api/users',{
+    this.subscription = this.http.get<Response>('https://reqres.in/api/users',{
       params:params
     })
     .subscribe(response =>{
@@ -41,10 +41,13 @@ export class StudentsComponent implements OnInit  , OnDestroy{
   }
   onViewMore(i:number)
   {
-   this.studentID=this.ListOfStudents[i].id
-   this.router.navigate([i],{relativeTo:this.route,queryParams:{'currendID':this.studentID}})
+    if(this.ListOfStudents![i]){
+      this.studentID=this.ListOfStudents![i].id
+      this.router.navigate([i],{relativeTo:this.route,queryParams:{'currendID':this.studentID}})
+    }
   }
   ngOnDestroy(){
+    if(this.subscription)
     this.subscription.unsubscribe()
   }
 

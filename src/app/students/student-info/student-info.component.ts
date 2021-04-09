@@ -50,6 +50,7 @@ export class StudentInfoComponent implements OnInit , OnDestroy {
     this.router.navigate(['/students']);
   }
   ngOnDestroy(){
+    if(this.subscription)
     this.subscription.unsubscribe()
     this.paramsFound=false
   }

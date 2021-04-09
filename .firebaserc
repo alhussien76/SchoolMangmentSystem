@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "ng-test-ed505"
+  },
+  "targets": {
+    "ng-test-ed505": {
+      "hosting": {
+        "admin": [
+          "schoolmangmentsys"
+        ]
+      }
+    }
   }
 }
