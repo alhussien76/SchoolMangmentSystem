@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
 ## Development server
-To login  
+To login or signup
 Email: huss@gmail.com  
 Password: 123456  
 
