@@ -11,6 +11,10 @@ import { StudentInfoComponent } from './students/student-info/student-info.compo
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './app_routing';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { appReducer } from './store/app.reducer' 
+import { studentsEffects } from './students/store/students.effects';
 
 
 @NgModule({
@@ -25,6 +29,8 @@ import { AuthenticationComponent } from './authentication/authentication.compone
   imports: [
     ReactiveFormsModule,                        
     FormsModule,
+    StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([studentsEffects]),
     HttpClientModule ,
     BrowserModule,
     AccordionModule.forRoot(),

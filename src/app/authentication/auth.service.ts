@@ -35,7 +35,7 @@ logout(){
     if(this.router)
     this.router.navigate(['authentication'])
 }
-login(){
+login(){   /// fake the user token with 1 hour 
     this.isAuthenticated.next(true)
     const expirationTime =  new Date(new Date().getTime() + 3600 * 1000)
     this.autoLogout(3600 * 1000)
