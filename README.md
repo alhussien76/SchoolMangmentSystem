@@ -2,20 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
+## Deployment
+This app is deployed via firebase [Go to app](https://schoolmangmentsys.web.app/)
+To login or signup  
+Email: huss@gmail.com  
+Password: 123456  
+
+
 ## Features
 Responsive Design For All Devices  
 Application State (ngrx)  
 Unit Test 
 
 ## Development server
-To login or signup  
-Email: huss@gmail.com  
-Password: 123456  
-
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Deployment
-This app is deployed via firebase [Go to app](https://schoolmangmentsys.web.app/)
 
 ## Code scaffolding
 
